@@ -18,8 +18,8 @@ jobs:
         run: go test -v ./...
       - name: Build binaries
         run: |
-          GOOS=linux GOARCH=arm64 go build -o nm-configurator-arm64 ./...
-          GOOS=linux GOARCH=amd64 go build -o nm-configurator-amd64 ./...
+          GOOS=linux GOARCH=arm64 go build -o nm-configurator-arm64 main.go
+          GOOS=linux GOARCH=amd64 go build -o nm-configurator-amd64 main.go
       - name: Create a release
         uses: softprops/action-gh-release@v1
         with:
