@@ -32,6 +32,8 @@ host_config:
     interfaces:
       - logical_name: eth0
         mac_address: 00:10:20:30:40:50
+      - logical_name: eth1
+        mac_address: 10:20:30:40:50:60        
   - hostname: node2.example.com
     interfaces:
       - logical_name: eth0
@@ -39,13 +41,13 @@ host_config:
 ```
 
 **NOTE:** Interface names during the installation of nodes might differ from the preconfigured logical ones.
-This is expected and `nm-configurator` will rely on the MAC addresses and use the actual names for
-NetworkManager configuration instead e.g. settings for interface named `eth0.101` with a predefined logical name `eth0`
-will automatically be adjusted and stored to `/etc/NetworkManager/eth0.101.nmconnection`.
+This is expected and `nm-configurator` will rely on the MAC addresses and use the actual names for the
+NetworkManager configurations instead e.g. settings for interface with a predefined logical name `eth0` but
+actually named `eth0.101` will automatically be adjusted and stored to `/etc/NetworkManager/eth0.101.nmconnection`.
 
 ## How to install it?
 
-### Standard
+### Standard method:
 
 Each release is published with `nm-configurator` already built for `amd64` and `arm64` Linux systems:
 
@@ -61,7 +63,7 @@ $ curl -o nm-configurator -L https://github.com/suse-edge/nm-configurator/releas
 $ chmod +x nm-configurator
 ```
 
-### Manual
+### Manual method:
 
 ```shell
 $ git clone https://github.com/suse-edge/nm-configurator.git
@@ -94,7 +96,7 @@ DEBU[2023-08-17T17:32:23+03:00] storing file "./etc/NetworkManager/system-connec
 INFO[2023-08-17T17:32:23+03:00] successfully configured network manager 
 ```
 
-*Note:* The default values for `-config-dir` and `-hosts-config-file` flags are `default` and `host_config.yaml`
+*Note:* The default values for `-config-dir` and `-hosts-config-file` flags are `config` and `host_config.yaml`
 respectively so providing them is not necessary with the file structure in the example:
 
 ```shell
