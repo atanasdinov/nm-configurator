@@ -31,6 +31,7 @@ func (c *Configurator) Run() error {
 	if err != nil {
 		return fmt.Errorf("identifying host: %w", err)
 	}
+	log.Infof("successfully identified host: %s", host.Name)
 
 	if err = c.copyConnectionFiles(host); err != nil {
 		return fmt.Errorf("copying files: %w", err)
@@ -93,7 +94,7 @@ func (c *Configurator) copyConnectionFiles(host *config.Host) error {
 
 			interfaceName, ok := c.networkInterfaces[i.MACAddress]
 			if ok && interfaceName != i.LogicalName {
-				log.Debugf("using name %q for interface with MAC address %q instead of the preconfigured %q",
+				log.Debugf("using name '%s' for interface with MAC address '%s' instead of the preconfigured '%s'",
 					interfaceName, i.MACAddress, i.LogicalName)
 
 				for _, section := range file.Sections() {
@@ -113,7 +114,7 @@ func (c *Configurator) copyConnectionFiles(host *config.Host) error {
 			break
 		}
 
-		log.Debugf("storing file %q...", destination)
+		log.Infof("storing file %s...", destination)
 		if err = file.SaveTo(destination); err != nil {
 			errs = append(errs, fmt.Errorf("storing file %s: %w", destination, err))
 			continue

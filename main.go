@@ -35,6 +35,8 @@ func main() {
 		log.SetLevel(log.DebugLevel)
 	}
 
+	log.Infof("starting nm-configurator...")
+
 	if err := os.MkdirAll(systemConnectionsDir, 0755); err != nil {
 		log.Fatalf("failed to create \"system-connections\" dir: %s", err)
 	}
@@ -46,7 +48,7 @@ func main() {
 
 	networkInterfaces, err := configurator.GetNetworkInterfaces()
 	if err != nil {
-		log.Fatalf("failed to load system network interfaces: %s", err)
+		log.Fatalf("failed to list system network interfaces: %s", err)
 	}
 
 	c := configurator.New(conf, networkInterfaces)
