@@ -1,6 +1,7 @@
 package configurator
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -60,6 +61,8 @@ func (c *Configurator) copyConnectionFiles(host *config.Host) error {
 		return err
 	}
 
+	var errs []error
+
 	for _, entry := range dirEntries {
 		name := entry.Name()
 		if entry.IsDir() {
@@ -75,7 +78,8 @@ func (c *Configurator) copyConnectionFiles(host *config.Host) error {
 		source := filepath.Join(hostConfigDir, name)
 		file, err := ini.Load(source)
 		if err != nil {
-			return fmt.Errorf("loading file %q: %w", source, err)
+			errs = append(errs, fmt.Errorf("loading file %s: %w", source, err))
+			continue
 		}
 
 		destination := filepath.Join(c.config.DestinationDir, name)
@@ -111,14 +115,15 @@ func (c *Configurator) copyConnectionFiles(host *config.Host) error {
 
 		log.Debugf("storing file %q...", destination)
 		if err = file.SaveTo(destination); err != nil {
-			return fmt.Errorf("storing file %q: %w", destination, err)
+			errs = append(errs, fmt.Errorf("storing file %s: %w", destination, err))
+			continue
 		}
 
 		// Set the necessary permissions required by NetworkManager.
 		if err = os.Chmod(destination, 0600); err != nil {
-			return fmt.Errorf("updating permissions for file %q: %w", destination, err)
+			errs = append(errs, fmt.Errorf("updating permissions for file %s: %w", destination, err))
 		}
 	}
 
-	return nil
+	return errors.Join(errs...)
 }
