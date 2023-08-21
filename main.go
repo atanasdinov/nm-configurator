@@ -35,7 +35,7 @@ func main() {
 		log.SetLevel(log.DebugLevel)
 	}
 
-	log.Infof("starting configurator...")
+	log.Info("starting network manager configurator...")
 
 	if err := os.MkdirAll(systemConnectionsDir, 0755); err != nil {
 		log.Fatalf("failed to create \"system-connections\" dir: %s", err)
