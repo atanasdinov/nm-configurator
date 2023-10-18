@@ -1,6 +1,8 @@
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/nmstate/nmstate/rust/src/go/nmstate/v2 v2.0.0-20231018120839-eb44d9fe08e7 h1:7Fqt9gsl7AkAxXdH3dc1iGRx0FmrtDvLh4j0QDrrwPM=
+github.com/nmstate/nmstate/rust/src/go/nmstate/v2 v2.0.0-20231018120839-eb44d9fe08e7/go.mod h1:2vIg0rbxZID83I1TmMq1t2Rppg3kimG3fSa2MmckJp0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/sirupsen/logrus v1.9.3 h1:dueUQJ1C2q9oE3F7wvmSGAaVtTmUizReu6fjN8uqzbQ=

@@ -3,6 +3,7 @@ module github.com/suse-edge/nm-configurator
 go 1.20
 
 require (
+	github.com/nmstate/nmstate/rust/src/go/nmstate/v2 v2.0.0-20231018120839-eb44d9fe08e7
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.7.0
 	gopkg.in/ini.v1 v1.67.0
