@@ -5,8 +5,8 @@ import (
 	"os"
 
 	log "github.com/sirupsen/logrus"
-	"github.com/suse-edge/nm-configurator/pkg/config"
-	"github.com/suse-edge/nm-configurator/pkg/configurator"
+	"github.com/suse-edge/nm-configurator/internal/config"
+	"github.com/suse-edge/nm-configurator/internal/configurator"
 )
 
 const systemConnectionsDir = "/etc/NetworkManager/system-connections"

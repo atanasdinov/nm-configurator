@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	log "github.com/sirupsen/logrus"
-	"github.com/suse-edge/nm-configurator/pkg/config"
+	"github.com/suse-edge/nm-configurator/internal/config"
 	"gopkg.in/ini.v1"
 )
 

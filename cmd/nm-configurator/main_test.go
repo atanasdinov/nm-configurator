@@ -8,8 +8,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/suse-edge/nm-configurator/pkg/config"
-	"github.com/suse-edge/nm-configurator/pkg/configurator"
+	"github.com/suse-edge/nm-configurator/internal/config"
+	"github.com/suse-edge/nm-configurator/internal/configurator"
 )
 
 const (
